@@ -1,7 +1,9 @@
 import { getServerSession } from "next-auth";
 import Link from "next/link";
-import { FC } from "react";
-import { buttonVariants } from "./ui/Button";
+import { buttonVariants } from "@/ui/Button";
+import SignInButton from "@/components/SignInButton";
+import SignOutButton from "@/components/SignOutButton";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface NavbarProps {}
 
