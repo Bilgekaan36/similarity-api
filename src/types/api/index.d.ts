@@ -8,5 +8,5 @@ export interface CreateApiData {
 
 export interface RevokeApiData {
   error: string | ZodIssue[] | null;
-  deletedApiKey: boolean;
+  success: boolean;
 }
