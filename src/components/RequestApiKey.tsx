@@ -38,7 +38,7 @@ const RequestApiKey: FC = ({}) => {
         type: "error",
       });
     } finally {
-      setIsCreating(false);
+      setIsCreating(false); 
     }
   }
 
