@@ -1,11 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { Highlight, type Language } from "prism-react-renderer";
-import defaultProps from "prism-react-renderer";
-import lightTheme from "prism-react-renderer";
-import darkTheme from "prism-react-renderer";
-
+import { Highlight, type Language, themes } from "prism-react-renderer";
 import { FC, useEffect, useState } from "react";
 
 interface CodeProps {
@@ -46,11 +42,10 @@ const Code: FC<CodeProps> = ({
   // number of lines
   const lines = text.split(/\r\n|\r|\n/).length;
 
-  const theme = applicationTheme === "light" ? lightTheme : darkTheme;
+  const theme = applicationTheme === "light" ? themes.vsLight : themes.vsDark;
 
   return (
-    //@ts-ignore theme is not a valid prop
-    <Highlight {...defaultProps} code={text} language={language} theme={theme}>
+    <Highlight code={text} language={language} theme={theme}>
       {({ className, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={

@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import {
   DataGrid,
   type GridColDef,
@@ -51,11 +51,21 @@ interface TableProps {
 }
 
 const Table: FC<TableProps> = ({ userRequests }) => {
-  const { theme: applicationTheme } = useTheme();
+  const { theme: applicationTheme, systemTheme } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState<string | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    setCurrentTheme(applicationTheme);
+    if (applicationTheme === "system") {
+      setCurrentTheme(systemTheme);
+    }
+  }, [systemTheme, applicationTheme]);
 
   const theme = createTheme({
     palette: {
-      mode: applicationTheme === "light" ? "light" : "dark",
+      mode: currentTheme === "light" ? "light" : "dark",
     },
   });
 
@@ -72,7 +82,7 @@ const Table: FC<TableProps> = ({ userRequests }) => {
     <ThemeProvider theme={theme}>
       <DataGrid
         style={{
-          backgroundColor: applicationTheme === "light" ? "white" : "#152238",
+          backgroundColor: currentTheme === "light" ? "white" : "#152238",
           fontSize: "1rem",
         }}
         pageSizeOptions={[5]}
