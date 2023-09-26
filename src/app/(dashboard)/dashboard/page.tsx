@@ -6,7 +6,7 @@ import ApiDashboard from "@/components/ApiDashboard";
 import RequestApiKey from "@/components/RequestApiKey";
 import { notFound } from "next/navigation";
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: "Similarity API | Dashboard",
   description: "Free & open-source text similarity API",
 };
