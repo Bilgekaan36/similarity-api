@@ -32,7 +32,6 @@ export default withAuth(
       }
     }
 
-    console.log("show req", req);
     // Manage route protection
     const token = await getToken({ req });
     const isAuth = !!token;
@@ -40,6 +39,7 @@ export default withAuth(
 
     const sensitiveRoutes = ["/dashboard"];
 
+    console.log("token", token);
     console.log("isAuth", isAuth);
     console.log("isAuthPage", isAuthPage);
     if (isAuthPage) {
