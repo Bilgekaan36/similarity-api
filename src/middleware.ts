@@ -40,6 +40,8 @@ export default withAuth(
 
     const sensitiveRoutes = ["/dashboard"];
 
+    console.log("isAuth", isAuth);
+    console.log("isAuthPage", isAuthPage);
     if (isAuthPage) {
       if (isAuth) {
         return NextResponse.redirect(new URL("/dashboard", req.url));
