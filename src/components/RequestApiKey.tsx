@@ -9,6 +9,12 @@ import Paragraph from "@/ui/Paragraph";
 import CopyButton from "@/components/CopyButton";
 import { Input } from "@/ui/Input";
 import Button from "@/ui/Button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Similarity API | APIKey",
+  description: "Free & open-source text similarity API",
+};
 
 const RequestApiKey: FC = ({}) => {
   const [isCreating, setIsCreating] = useState<boolean>(false);
